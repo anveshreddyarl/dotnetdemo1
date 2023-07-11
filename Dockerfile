@@ -1,22 +1,22 @@
-FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:5.0
+
+#Set up a non-root user
+RUN groupadd -g 1001 appuser && \
+    && useradd -r -u 1001 -g appuser appuser
+
+USER appuser
+
+# Copy the application files
+COPY . /app
+
+# Set the working directory
 WORKDIR /app
 
-RUN apt-get update
-RUN curl -sL https://deb.nodesource.com/setup_16.x  | bash -
-RUN apt-get -y install nodejs
+# Build the application
+RUN dotnet build
 
-COPY . ./
-RUN dotnet restore
+# Expose the necessary port
+EXPOSE 80
 
-RUN dotnet build "dotnet6.csproj" -c Release
-
-RUN dotnet publish "dotnet6.csproj" -c Release -o publish
-
-
-FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
-
-COPY --from=build /app/publish .
-ENV ASPNETCORE_URLS http://*:5000
-
-EXPOSE 5000
-ENTRYPOINT ["dotnet", "dotnet6.dll"]
+# Start the application
+CMD ["dotnet", "run"]
