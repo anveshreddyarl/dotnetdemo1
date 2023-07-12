@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: my-service
-  nnamespace: reddy
+  namespace: reddy
 spec:
   selector:
     app: dotnetdemo
