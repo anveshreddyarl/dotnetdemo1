@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
       - name: dotnetdemo
-        image: dotnetdemo-app:latest
+        image: anveshreddyarl/dotnetdemo:latest
         ports:
         - containerPort: 80
