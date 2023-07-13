@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: my-service
-  namespace: reddy
+  namespace: newnamespace
 spec:
   selector:
     app: dotnetdemo
@@ -10,4 +10,4 @@ spec:
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 9000
+      targetPort: 5000
