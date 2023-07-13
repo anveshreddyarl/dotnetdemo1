@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: dotnet-deployment
-  namespace: reddy
+  namespace: newnamespace
   labels:
     app: dotnetdemo
 spec:
@@ -17,6 +17,8 @@ spec:
     spec:
       containers:
       - name: dotnetdemo
-        image: anveshreddyarl/dotnetdemo:latest
+        image: anveshreg.azurecr.io/dotnetdemo:latest
         ports:
         - containerPort: 80
+      imagePullSecrets:
+      - name: bob
