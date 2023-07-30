@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: project
+  labels:
+    app: anvesh
+spec:
+  containers:
+    - name: my-container
+      image: anveshreddyarl/dotnetdemo:2.1 

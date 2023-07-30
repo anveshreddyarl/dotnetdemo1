@@ -1,0 +1,7 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: dotnetdemo
+  namespace: dotnet-space
+data:
+  DB_HOST: DB_HOST

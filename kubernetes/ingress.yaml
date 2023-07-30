@@ -1,0 +1,33 @@
+# https://kubernetes.io/docs/concepts/services-networking/ingress/#the-ingress-resource
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: IngressName
+  namespace: dotnet-space
+spec:
+  rules:
+  - host: foo.bar.com
+    http:
+      paths:
+      - path: / 
+        pathType: Prefix
+        backend:
+          service:
+            name: dotnetdemo
+            port:
+              number: 80
+      - path: /career
+        pathType: Prefix
+        backend:
+          service:
+            name: dotnetdemo
+            port:
+            number: 80
+      - path: /staffing
+        pathType: Prefix
+        backend:
+         service:
+          name: dotnetdemo
+          port:
+            number: 80

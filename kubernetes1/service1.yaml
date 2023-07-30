@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  app: dotnetdemo
+  namespace: anveshns
+spec:
+  selector:
+    app: dotnetdemo
+  type: LoadBalancer
+  ports:
+  - app: dotnetdemo
+    protocol: TCP
+    port: 80
+    targetPort: 5000 
+ 
