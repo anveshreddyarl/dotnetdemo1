@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: anveshreddyarldotnetdemo 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: anveshreddyarldotnetdemo
+  template:
+    metadata:
+      labels:
+        app: anveshreddyarldotnetdemo 
+    spec:
+      containers:
+        - name: anveshreddyarldotnetdemo 
+          image: anveshreg.azurecr.io/anveshreddyarldotnetdemo
+          ports:
+          - containerPort: 5000
